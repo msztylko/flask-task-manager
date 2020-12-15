@@ -2,4 +2,10 @@
 
 {% block main %}
 <p>some content from the about page</p>
+<form action="post">
+	{{ form.csrf_token }}
+	{{ form.title.label }}
+	{{ form.title }}
+	{{ form.submit }}
+</form>
 {% endblock main %}
