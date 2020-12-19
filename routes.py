@@ -22,3 +22,13 @@ def add():
         flash('Task added to the database')
         return redirect(url_for('index'))
     return render_template('add.html', form=form)
+
+
+@app.route('/edit/<int:task_id>')
+def edit(task_id):
+    task = Task.query.get(task_id)
+    form = forms.AddTaskForm()
+    if task:
+        form.title.data = task.title
+        return render_template('edit.html', form=form, task_id=task_id)
+    return redirect(url_for('index'))
