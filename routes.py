@@ -9,13 +9,12 @@ from models import Task
 
 
 @app.route('/')
-@app.route('/index')
 def index():
     tasks = Task.query.all()
     return render_template('index.html', tasks=tasks)
 
 
-@app.route('/about', methods=['GET', 'POST'])
+@app.route('/add', methods=['GET', 'POST'])
 def add():
     form  = forms.AddTaskForm()
     if form.validate_on_submit():
@@ -25,6 +24,7 @@ def add():
         flash('Task added to the database')
         return redirect(url_for('index'))
     return render_template('add.html', form=form)
+
 
 @app.route('/edit/<int:task_id>', methods=['GET', 'POST'])
 def edit(task_id):
@@ -44,6 +44,7 @@ def edit(task_id):
     else:
         flash('Task not found')
     return redirect(url_for('index'))
+
 
 @app.route('/delete/<int:task_id>', methods=['GET', 'POST'])
 def delete(task_id):
