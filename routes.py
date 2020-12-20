@@ -1,9 +1,12 @@
-from app import app, db
-from flask import render_template, redirect, url_for, flash, get_flashed_messages
 from datetime import datetime
 
+from flask import (flash, get_flashed_messages, redirect, render_template,
+                   url_for)
+
 import forms
+from app import app, db
 from models import Task
+
 
 @app.route('/')
 @app.route('/index')
