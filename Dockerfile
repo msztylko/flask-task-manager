@@ -7,4 +7,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
+# Initialize new database
+RUN ["python", "initial_db.py"]
+
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
