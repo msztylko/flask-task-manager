@@ -6,7 +6,16 @@ This is my first project with Flask but defenitely not the last one! I treat it 
 ## INSTALL
 
 If you want to try it yourself just run:
+
 1. `git clone https://github.com/msztylko/flask-task-manager.git && cd flask-task-manager`
-2. `docker build -t flask-task-manager .`  
-3. `docker run -p 5000:5000 flask-task-manager`
-4. In your browser go to `localhost:5000`
+2. `python3 -m virtualenv venv`
+3. `source venv/bin/activate`
+4. `pip install -r requirements.txt`
+5. `flask run`
+
+### Run with Docker
+After clonning the repo:
+1. `docker build -t flask-task-manager .`  
+2. `docker run -p 5000:5000 flask-task-manager`
+
+When you see that app is running in your terminal go to `localhost:5000` in your browser
